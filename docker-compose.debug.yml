@@ -1,0 +1,9 @@
+version: '2.1'
+
+services:
+  redis_server:
+    image: redis
+  node-app:
+    build: .
+    ports:
+      - 8080:8080

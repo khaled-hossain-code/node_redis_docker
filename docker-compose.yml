@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  redis-server:
+    image: 'redis'
+    restart: always
+    # wee dont need to export any port to connect to it. now node-app can conneect to redis in localhost
+  node-app:
+    # restart policy will restart the container, options:
+    # no, always, on-failure = restart other than exit code 0, unless-stopped
+    restart: always
+    build: .
+    ports:
+    # this exporting just for webApp.
+      - 8080:8080
